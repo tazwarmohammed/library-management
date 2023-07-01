@@ -1,14 +1,70 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+h1 {
+    background-color: #dadada;
+    text-align: center;
+    font-size: xx-large;
+    margin: -8px -8px 10px -8px;
+    padding: 30px 10px 30px 10px;
+    border-bottom: 1px solid #5c5858;
+    box-shadow: 0 0 10px 5px rgb(102, 102, 102);
+}
+
+#library-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .book-card {
-    border: 1px solid #ccc;
+    position: relative;
+    background-color: #dadada;
+    font-size: 12.4px;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 1rem;
+    margin: 10px;
 }
 
-.book-card button {
-    margin-left: 5px;
+.closeButton {
+    background-color: #dadada;
+    border: 1px solid black;
+    border-radius: 40%;
+    font-size: 12.3px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+    color: red;
+    border: 1px solid red;
+    transform: scale(1.2);
+}
+
+.circle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #04139b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.2s ease;
+}
+
+.plus-icon {
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.circle-button:hover {
+    transform: scale(1.2);
 }

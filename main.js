@@ -1,4 +1,26 @@
-let myLibrary = [];
+let myLibrary = [
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammedsdsdsdsdsdsdsd', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammedsdsdsdsdsdsdsd', pages: 366, read: true},
+];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -19,12 +41,12 @@ function displayBooks() {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     bookCard.innerHTML = `
-      <p><strong>Title:</strong> ${book.title}</p>
-      <p><strong>Author:</strong> ${book.author}</p>
-      <p><strong>Pages:</strong> ${book.pages}</p>
-      <p><strong>Read:</strong> ${book.read ? 'Yes' : 'No'}</p>
-      <button onclick="removeBook(${index})">Remove</button>
-      <button onclick="toggleReadStatus(${index})">Toggle Read Status</button>
+        <button class="closeButton" onclick="removeBook(${index})">X</button>
+        <p><strong>Title:</strong> ${book.title}</p>
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Pages:</strong> ${book.pages}</p>
+        <p><strong>Read:</strong> ${book.read ? 'Yes' : 'No'}</p>
+
     `;
     libraryContainer.appendChild(bookCard);
   });

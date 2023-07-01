@@ -20,3 +20,12 @@ function addBookToLibrary() {
 4) Add a button on each book’s display to remove the book from the library. You will need to associate your DOM elements with the actual book objects in some way. One easy solution is to give them a data attribute that corresponds to the index of the library array.
 
 5) Add a button on each book’s display to change its read status. To facilitate this, you will want to create the function that toggles a book’s read status on your Book prototype instance.
+
+Create an html div element for a library web page with the id 'library-container' 
+that has a display of 'flexbox' where book cards as div elements will be inserted after 
+the addition of a new book to the library. Only four book cards can fit in a single row inside 
+the 'library container' element, and if further books are added, they will be displayed on the next row.
+
+
+        
+                <button onclick="toggleReadStatus(${index})">Toggle Read Status</button>
