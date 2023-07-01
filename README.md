@@ -1,1 +1,26 @@
 # library-management
+
+Live link: https://tazwarmohammed.github.io/library-management/
+
+Create a web page for a library within a single HTML file, including CSS and JavaScript embedded in it, based on the following criteria:
+
+
+1) All of the book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take the user’s input and store the new book objects into an array. The code should look something like this:
+
+let myLibrary = [];
+
+function Book() {
+  // the constructor...
+}
+
+function addBookToLibrary() {
+  // do stuff here
+}
+
+2) Write a function that loops through the array and displays each book on the page. You can display them on some sort of table or each on their own “card”.
+
+3) Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read, and anything else you might want.
+
+4) Add a button on each book’s display to remove the book from the library. You will need to associate your DOM elements with the actual book objects in some way. One easy solution is to give them a data attribute that corresponds to the index of the library array.
+
+5) Add a button on each book’s display to change its read status. To facilitate this, you will want to create the function that toggles a book’s read status on your Book prototype instance.
