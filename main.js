@@ -1,6 +1,6 @@
 let readButtons;
 
-let myLibrary = [
+let myBooks = [
     {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
     {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
     {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
@@ -32,14 +32,14 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(book) {
-  myLibrary.push(book);
+  myBooks.push(book);
 }
 
 function displayBooks() {
   const libraryContainer = document.getElementById('library-container');
   libraryContainer.innerHTML = '';
 
-  myLibrary.forEach((book, index) => {
+  myBooks.forEach((book, index) => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     bookCard.innerHTML = `
@@ -102,14 +102,14 @@ function addBook(event) {
 }
 
 function removeBook(index) {
-  myLibrary.splice(index, 1);
+  myBooks.splice(index, 1);
   displayBooks();
 }
 
 function toggleReadStatus(e, index) {
-  myLibrary[index].read = !myLibrary[index].read;
+  myBooks[index].read = !myBooks[index].read;
   console.log(e.target);
-  if(myLibrary[index].read) {
+  if(myBooks[index].read) {
     e.target.style.backgroundColor = 'lightgreen';
     e.target.innerText = 'Read';
   } else {
@@ -119,7 +119,7 @@ function toggleReadStatus(e, index) {
 }
 
 function overReadStatus(e, index) {
-  if(myLibrary[index].read) {
+  if(myBooks[index].read) {
     e.target.style.cssText = 'background: rgb(117, 192, 117);';
   } else {
     e.target.style.cssText = 'background: rgb(167, 88, 114);';
@@ -127,7 +127,7 @@ function overReadStatus(e, index) {
 }
 
 function outReadStatus(e, index) {
-  if(myLibrary[index].read) {
+  if(myBooks[index].read) {
     e.target.style.backgroundColor = 'lightgreen';
   } else {
     e.target.style.backgroundColor = 'palevioletred';
@@ -138,6 +138,15 @@ function showForm() {
   const formContainer = document.getElementById('form-container');
   formContainer.style.display = 'block';
 }
+
+function deleteAll() {
+  myBooks.length = 0;
+  displayBooks();
+}
+
+document.querySelector('.add-book').addEventListener('click', showForm);
+
+document.querySelector('.delete-all').addEventListener('click', deleteAll);
 
 // Initial display of books
 displayBooks();
