@@ -26,6 +26,4 @@ that has a display of 'flexbox' where book cards as div elements will be inserte
 the addition of a new book to the library. Only four book cards can fit in a single row inside 
 the 'library container' element, and if further books are added, they will be displayed on the next row.
 
-
-        
-                <button onclick="toggleReadStatus(${index})">Toggle Read Status</button>
+ onclick="toggleReadStatus(${index})"

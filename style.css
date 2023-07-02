@@ -7,10 +7,16 @@ h1 {
     background-color: #dadada;
     text-align: center;
     font-size: xx-large;
-    margin: -8px -8px 10px -8px;
+    margin: -8px -8px 50px -8px;
     padding: 30px 10px 30px 10px;
     border-bottom: 1px solid #5c5858;
     box-shadow: 0 0 10px 5px rgb(102, 102, 102);
+}
+
+p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #library-container {
@@ -19,15 +25,22 @@ h1 {
 }
 
 .book-card {
+    width: 8.27rem;
+    height: 7rem;
     position: relative;
     background-color: #dadada;
     font-size: 12.4px;
     border-radius: 5px;
     padding: 1rem;
-    margin: 10px;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
 }
 
-.closeButton {
+.book-card:hover {
+    transform: scale(1.1);
+}
+
+.close-button {
     background-color: #dadada;
     border: 1px solid black;
     border-radius: 40%;
@@ -38,10 +51,19 @@ h1 {
     transition: all 0.2s ease;
 }
 
-.closeButton:hover {
+.close-button:hover {
     color: red;
     border: 1px solid red;
     transform: scale(1.2);
+}
+
+.read-status {
+    position: absolute;
+    left: 30%;
+    width: 4rem;
+    border: none;
+    border-radius: 5px;
+    color: ligh;
 }
 
 .circle-button {
@@ -51,20 +73,20 @@ h1 {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #04139b;
-    color: #fff;
+    background-color: black;
+    color: white;
     border: none;
     cursor: pointer;
     z-index: 9999;
     transition: all 0.2s ease;
 }
 
+.circle-button:hover {
+    transform: scale(1.2);
+}
+
 .plus-icon {
     font-size: 30px;
     line-height: 60px;
     text-align: center;
-}
-
-.circle-button:hover {
-    transform: scale(1.2);
 }
