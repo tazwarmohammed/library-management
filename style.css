@@ -48,6 +48,10 @@ input[type="number"] {
     margin-bottom: 1.5rem;
 }
 
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
 form button {
     margin: 0rem 1rem 0rem 1rem;
     width: 5rem;

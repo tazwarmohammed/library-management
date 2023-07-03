@@ -3,36 +3,15 @@ const libraryContainer = document.querySelector('#library-container');
 const formContainer = document.querySelector('#form-container');
 
 const formOpenBtn = document.querySelector('.add-book');
-formOpenBtn.addEventListener('click', () => {
-  formContainer.showModal();
-});
+
+const deleteAllBtn = document.querySelector('.delete-all');
 
 const formCloseBtn = document.querySelector('.form-cancel');
-formCloseBtn.addEventListener('click', () => {
-  formContainer.close();
-});
+
 
 let myBooks = [
     {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
-    {title: 'Tazwar', author: 'Mohammedsdsdsdsdsdsdsd', pages: 366, read: true},
+    {title: 'Tazwar', author: 'Mohammedsdsdsdsdsdsdsd', pages: 36, read: true},
     {title: 'Tazwar', author: 'Mohammedsdsdsdsdsdsdsd', pages: 366, read: false},
 ];
 
@@ -82,8 +61,6 @@ function displayBooks() {
 }
 
 function addBook(event) {
-  event.preventDefault();
-
   const titleInput = document.getElementById('title');
   const authorInput = document.getElementById('author');
   const pagesInput = document.getElementById('pages');
@@ -99,14 +76,10 @@ function addBook(event) {
   myBooks.push(book);
   displayBooks();
 
-  // Reset the form 
   titleInput.value = '';
   authorInput.value = '';
   pagesInput.value = '';
   readInput.checked = false;
-
-  // Hide the form
-  formContainer.style.display = 'none';
 }
 
 function removeBook(index) {
@@ -141,15 +114,16 @@ function outReadStatus(e, index) {
     e.target.style.backgroundColor = 'palevioletred';
   }
 }
-// document.querySelector('.add-book').addEventListener('click', () => {
-//   formContainer.style.display = 'block';
-// });
 
-// document.querySelector('.form-close').addEventListener('click', () => {
-//   formContainer.style.display = 'none';
-// })
+formOpenBtn.addEventListener('click', () => {
+  formContainer.showModal();
+});
 
-document.querySelector('.delete-all').addEventListener('click', () => {
+formCloseBtn.addEventListener('click', () => {
+  formContainer.close();
+});
+
+deleteAllBtn.addEventListener('click', () => {
   myBooks.length = 0;
   libraryContainer.innerHTML = '';
 });
