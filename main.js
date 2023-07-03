@@ -1,4 +1,6 @@
-let readButtons;
+const formContainer = document.getElementById('form-container');
+
+const libraryContainer = document.getElementById('library-container');
 
 let myBooks = [
     {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
@@ -24,26 +26,24 @@ let myBooks = [
     {title: 'Tazwar', author: 'Mohammedsdsdsdsdsdsdsd', pages: 366, read: false},
 ];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-function addBookToLibrary(book) {
-  myBooks.push(book);
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function displayBooks() {
-  const libraryContainer = document.getElementById('library-container');
+
   libraryContainer.innerHTML = '';
 
   myBooks.forEach((book, index) => {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     bookCard.innerHTML = `
-        <button class="close-button" onclick="removeBook(${index})">X</button>
+        <button class="close-button" onclick="removeBook(${index})">&times;</button>
         <p><b>Title:</b> ${book.title}</p>
         <p><b>Author:</b> ${book.author}</p>
         <p><b>Pages:</b> ${book.pages}</p>
@@ -69,7 +69,6 @@ function displayBooks() {
       outReadStatus(e, index);
     });
   });
-
 }
 
 function addBook(event) {
@@ -80,24 +79,23 @@ function addBook(event) {
   const pagesInput = document.getElementById('pages');
   const readInput = document.getElementById('read');
 
-  const newBook = new Book(
+  const book = new Book(
     titleInput.value,
     authorInput.value,
     parseInt(pagesInput.value),
     readInput.checked
   );
 
-  addBookToLibrary(newBook);
+  myBooks.push(book);
   displayBooks();
 
-  // Reset the form
+  // Reset the form 
   titleInput.value = '';
   authorInput.value = '';
   pagesInput.value = '';
   readInput.checked = false;
 
   // Hide the form
-  const formContainer = document.getElementById('form-container');
   formContainer.style.display = 'none';
 }
 
@@ -134,19 +132,20 @@ function outReadStatus(e, index) {
   }
 }
 
-function showForm() {
-  const formContainer = document.getElementById('form-container');
-  formContainer.style.display = 'block';
-}
-
 function deleteAll() {
   myBooks.length = 0;
-  displayBooks();
+  libraryContainer.innerHTML = '';
 }
 
-document.querySelector('.add-book').addEventListener('click', showForm);
+document.querySelector('.add-book').addEventListener('click', () => {
+  formContainer.style.display = 'block';
+});
 
 document.querySelector('.delete-all').addEventListener('click', deleteAll);
+
+document.querySelector('.form-close').addEventListener('click', () => {
+  formContainer.style.display = 'none';
+})
 
 // Initial display of books
 displayBooks();
