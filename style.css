@@ -19,24 +19,47 @@ p {
     white-space: nowrap;
 }
 
-form {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: none;
-    width: 30%; /* Could be more or less, depending on screen size */
-    border-radius: 5px;
-}
-
 legend {
     text-align: center;
-    margin: 0rem 1rem 2rem 1rem;
+    margin: 0rem 1rem 1rem 1rem;
     font-size: 2rem;
     font-weight: bold;
 }
 
-section {
-    padding-left: 10px;
+section + section {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-weight: 550;
+}
+
+input[type="text"] {
+    width: 99%;
+    margin-bottom: 1.5rem;
+    font-size: large;
+}
+
+input[type="number"] {
+    width: 20%;
+    margin-bottom: 1.5rem;
+}
+
+form button {
+    margin: 0rem 1rem 0rem 1rem;
+    width: 5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+form button:hover {
+    cursor: pointer;
+    background-color: #dadada;
 }
 
 #button-container {
@@ -50,14 +73,16 @@ section {
 }
 
 #form-container {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    max-width: 40%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    border: none;
+    box-shadow: 0 0 25px 0 rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#form-container::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .add-book,
@@ -123,17 +148,17 @@ section {
     cursor: pointer;
 }
 
-.form-close {
+/* .form-cancel {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
+} */
     
-.form-close:hover {
+/* .form-cancel:hover {
     color: black;
     cursor: pointer;
-}
+} */
 
 /* .circle-button {
     position: fixed;

@@ -16,9 +16,8 @@
 
   <div id="library-container"></div>
 
-  <div id="form-container" style="display: none;">
-    <form onsubmit="addBook(event)">
-      <span class="form-close">&times;</span>
+  <dialog id="form-container">
+    <form onsubmit="addBook(event)" method="dialog">
       <legend>NEW BOOK</legend>
       <section>
         <label for="title">Title:</label>
@@ -30,9 +29,12 @@
         <label for="read">Have you read the book?</label>
         <input type="checkbox" id="read" name="read"><br>
       </section>
-      <button type="submit">Add</button>
+      <section>
+        <button type="submit">Add</button>
+        <button type="button" class="form-cancel">Cancel</button>
+      </section>
     </form>
-  </div>
+  </dialog>
 </body>
 <script src="main.js"></script>
 </html>

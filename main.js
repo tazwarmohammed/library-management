@@ -1,6 +1,16 @@
-const formContainer = document.getElementById('form-container');
+const libraryContainer = document.querySelector('#library-container');
 
-const libraryContainer = document.getElementById('library-container');
+const formContainer = document.querySelector('#form-container');
+
+const formOpenBtn = document.querySelector('.add-book');
+formOpenBtn.addEventListener('click', () => {
+  formContainer.showModal();
+});
+
+const formCloseBtn = document.querySelector('.form-cancel');
+formCloseBtn.addEventListener('click', () => {
+  formContainer.close();
+});
 
 let myBooks = [
     {title: 'Tazwar', author: 'Mohammed', pages: 366, read: true},
@@ -131,21 +141,18 @@ function outReadStatus(e, index) {
     e.target.style.backgroundColor = 'palevioletred';
   }
 }
+// document.querySelector('.add-book').addEventListener('click', () => {
+//   formContainer.style.display = 'block';
+// });
 
-function deleteAll() {
+// document.querySelector('.form-close').addEventListener('click', () => {
+//   formContainer.style.display = 'none';
+// })
+
+document.querySelector('.delete-all').addEventListener('click', () => {
   myBooks.length = 0;
   libraryContainer.innerHTML = '';
-}
-
-document.querySelector('.add-book').addEventListener('click', () => {
-  formContainer.style.display = 'block';
 });
-
-document.querySelector('.delete-all').addEventListener('click', deleteAll);
-
-document.querySelector('.form-close').addEventListener('click', () => {
-  formContainer.style.display = 'none';
-})
 
 // Initial display of books
 displayBooks();
