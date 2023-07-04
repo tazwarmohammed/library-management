@@ -89,7 +89,6 @@ function removeBook(index) {
 
 function toggleReadStatus(e, index) {
   myBooks[index].read = !myBooks[index].read;
-  console.log(e.target);
   if(myBooks[index].read) {
     e.target.style.backgroundColor = 'lightgreen';
     e.target.innerText = 'Read';
